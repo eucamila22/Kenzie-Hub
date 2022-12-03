@@ -1,33 +1,20 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Logo from '../../assets/Logo.svg'
 import { DivFormStyle, DivImg } from './style'
 import { loginSchema } from './loginSchema'
 
 const LoginPage = ({userLogin, loading}) => {
-    const navigate = useNavigate()
 
     const { register, handleSubmit, formState: {errors}, reset} = useForm({
         mode: 'onBlur',
-        defaultValues: {
-          name: '',
-          email: '',
-          password: '',
-          passwordConfirm: '',
-          bio: '',
-          contact: '',
-          course_module: ''
-        },
         resolver: yupResolver(loginSchema)
     })
 
-    const submit = async (data) => {
+    const submitLogin = async (data) => {
         await userLogin(data)
-        setTimeout(() => {
-            navigate(`/dashboard`)
-        }, 5000)
         reset()
     }
 
@@ -40,7 +27,7 @@ const LoginPage = ({userLogin, loading}) => {
 
             <h2>Login</h2>
 
-            <form onSubmit={handleSubmit(submit)} noValidate>
+            <form onSubmit={handleSubmit(submitLogin)} noValidate>
 
                 <label htmlFor='email'>E-mail</label>
                 <input type='email' id='email' placeholder='Digite aqui seu e-mail' {...register('email')}/>

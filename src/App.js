@@ -1,5 +1,5 @@
 import LoginPage from './pages/login'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import RegisterPage from './pages/register'
 import DasboardPage from './pages/dashboard'
 import GlobalStyles, { Container } from './styles/globalStyles'
@@ -13,6 +13,7 @@ import NotFound from './pages/NotFound'
 function App() {
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState(null)
+  const navigate = useNavigate()
 
 
   const userLogin = async (data) => {
@@ -23,9 +24,11 @@ function App() {
       localStorage.setItem('@USERID', response.data.user.id)
       setUser(response.data)
       toast.success('Login realizado com sucesso!')
+      setTimeout(() => {
+        navigate(`/dashboard`)
+      }, 4000)  
     }catch(err){
-      console.log(err)
-      toast.error(err.response.data.message)
+      toast.error('Houve um erro!')
     }finally{
       setLoading(false)
     }  
