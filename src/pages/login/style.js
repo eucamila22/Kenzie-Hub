@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-
-export const DivImg = styled.div`
-    display: flex;
-    justify-content: center;
-    height: 100px;
-    width: 296px;
-    margin-top: 80px;
-`
 export const DivFormStyle = styled.div`
     display: flex;
     flex-direction: column; 
@@ -25,7 +17,7 @@ export const DivFormStyle = styled.div`
         font-weight: var(--weight1);
         font-size: var(--tile3);
         color: var(--grey-0);
-        margin: 34px 0 10px 0;
+        margin: 24px 0 10px 0;
     }
 
     div > a {

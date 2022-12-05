@@ -53,7 +53,7 @@ export const Container = styled.body`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;  
 
   @media(min-width: 768px){

@@ -1,31 +1,5 @@
 import styled from "styled-components";
 
-export const DivImgRegister = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px;
-    width: 296px;
-    padding: 0 10px;
-
-    a {
-        width: 80px;
-        height: 30px;
-        color: var(--grey-0);
-        border: var(--grey-3);
-        background-color: var(--grey-3);
-        border-radius: var(--radius);
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    a:hover {
-        border: var(--grey-2);
-        background-color: var(--grey-2);
-    }
-`
 export const DivFormRegisterStyle = styled.div`
     display: flex;
     flex-direction: column; 
@@ -35,7 +9,7 @@ export const DivFormRegisterStyle = styled.div`
     border-radius: var(--radius);
     box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
     width: 296px;
-    height: 740px;
+    height: 700px;
     margin: 0 auto;
     color: var(--grey-0);
 
@@ -44,7 +18,6 @@ export const DivFormRegisterStyle = styled.div`
         font-size: var(--tile3);
         color: var(--grey-0);
         padding: 5px 0;
-        /* margin: 10px 0 10px 0; */
     }
 
     small {
@@ -72,7 +45,7 @@ export const DivFormRegisterStyle = styled.div`
         font-weight:var(--weight4);
         font-size: var(--text2);
         color: var(--grey-0);
-        margin: 10px 0 5px 0;
+        margin: 5px 0 5px 0;
     }
 
     input {
@@ -117,7 +90,7 @@ export const DivFormRegisterStyle = styled.div`
         background: var(--color-primary);
         border: 2px solid var(--color-primary);
         border-radius: var(--radius);
-        margin-top: 10px;
+        margin-top: 5px;
         color: var(--grey-0);
     }
 

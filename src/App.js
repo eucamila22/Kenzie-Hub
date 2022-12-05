@@ -9,8 +9,7 @@ import { useState } from 'react'
 import { api } from './service/api'
 import NotFound from './pages/NotFound'
 
-
-function App() {
+const App = () => {
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState(null)
   const navigate = useNavigate()
@@ -34,7 +33,6 @@ function App() {
     }  
   }
 
-
   return (
     <Container>
       <Routes>
@@ -45,7 +43,7 @@ function App() {
       </Routes>  
       <GlobalStyles/>
       <ToastContainer
-        position="bottom-right"
+        position='bottom-right'
         autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -54,7 +52,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme='light'
       />
     </Container>
   )
