@@ -51,11 +51,11 @@ export const Container = styled.body`
   background-color: var(--grey-4);
   width: 100vw;
   height: 100vh;
+  padding-bottom: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;  
-
   @media(min-width: 768px){
     *{
       -webkit-transition: all 3s ease;

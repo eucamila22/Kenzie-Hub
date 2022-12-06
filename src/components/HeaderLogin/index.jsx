@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../../assets/Logo.svg'
-import { DivImg } from '../../components/HeaderLogin/style.js'
+import { DivImg } from './style.js'
 
 
 const HeaderLogin = () => {
