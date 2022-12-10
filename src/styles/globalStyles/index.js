@@ -9,8 +9,9 @@ export default createGlobalStyle`
     box-sizing: border-box
   }
 
-  body, input, button, select {
+  body, input, button, select, ul, li{
     font-family: 'Inter', sans-serif;
+    list-style: none;
   }
 
   button {
@@ -51,17 +52,29 @@ export const Container = styled.body`
   background-color: var(--grey-4);
   width: 100vw;
   height: 100vh;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
+  
   @media(min-width: 768px){
     *{
-      -webkit-transition: all 3s ease;
-      -moz-transition: all 3s ease;
-      -o-transition: all 3s ease;
-      transition: all 3s ease;
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -o-transition: all 1s ease;
+      transition: all 1s ease;
+    }
+  }
+
+  @keyframes transition {
+    from {
+      opacity: 0;
+      transform: translateY(-70%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
     }
   }
 `

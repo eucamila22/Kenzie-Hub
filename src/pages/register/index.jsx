@@ -1,32 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { registerSchema } from "../../Schema/registerSchema.js";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { DivFormRegisterStyle } from "./style";
-import { api } from "../../service/api";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import HeaderRegister from "../../components/HeaderRegister";
+import { UserContext } from "../../contexts/UserContext.jsx";
 
-const RegisterPage = ({ loading, setLoading }) => {
-  const navigate = useNavigate();
-
-  const userRegister = async (data) => {
-    try {
-      setLoading(true);
-      const response = await api.post("users", data);
-      console.log(response);
-      toast.success("Cadastro realizado com sucesso!");
-      setTimeout(() => {
-        navigate(`/`);
-      }, 5000);
-    } catch (err) {
-      console.log(err);
-      toast.error(err.response.data.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+const RegisterPage = () => {
+  const {userRegister, loading} = useContext(UserContext)
 
   const {
     register,

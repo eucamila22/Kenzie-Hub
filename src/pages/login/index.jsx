@@ -1,26 +1,41 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { DivFormStyle } from "./style";
 import { loginSchema } from "../../Schema/loginSchema.js";
 import HeaderLogin from "../../components/HeaderLogin";
+import { UserContext } from "../../contexts/UserContext";
 
-const LoginPage = ({ userLogin, loading }) => {
+const LoginPage = () => {
+  const {userLogin, loading} = useContext(UserContext)
+  // const navigate = useNavigate()
+
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    // reset,
   } = useForm({
     mode: "onBlur",
     resolver: yupResolver(loginSchema),
   });
 
   const submitLogin = async (data) => {
-    await userLogin(data);
-    reset();
-  };
+    await userLogin(data)
+    // if(localStorage.getItem('@TOKEN')){
+    //   setTimeout(() => {
+    //     navigate('/dashboard')
+    //   }, 2000)
+    //   reset()
+    // }else{
+    // setTimeout(() => {
+    //   navigate('/')
+    // }, 2000)
+    // reset()
+    // }
+  }
 
   return (
     <>

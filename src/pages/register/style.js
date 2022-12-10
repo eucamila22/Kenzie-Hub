@@ -9,7 +9,7 @@ export const DivFormRegisterStyle = styled.div`
     border-radius: var(--radius);
     box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
     width: 296px;
-    height: 700px;
+    height: 720px;
     margin: 0 auto;
     color: var(--grey-0);
 
@@ -91,6 +91,7 @@ export const DivFormRegisterStyle = styled.div`
         border: 2px solid var(--color-primary);
         border-radius: var(--radius);
         margin-top: 5px;
+        margin-bottom: 10px;
         color: var(--grey-0);
     }
 

@@ -1,38 +1,46 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, Navigate } from 'react-router-dom'
 import Logo from '../../assets/Logo.svg'
-import { ContainerDash, DivDahs, HeaderDash, NavBar, SectionDash } from './style'
+import { ContainerDash, DivDahs, HeaderDash, NavBar } from './style'
+import SectionDash from './SectionDash'
+import { UserContext } from '../../contexts/UserContext'
 
-const DasboardPage = ({user}) => {
-  return (
-    <DivDahs>
-    <ContainerDash>
-      <NavBar>
-        <img src={Logo} alt='Logo Kenzie Hub' /> 
-        <Link to={`/`} onClick={() => {
-          user = null;
-          localStorage.removeItem('@TOKEN');
-          localStorage.removeItem('@USERID')
-        }}>
-          Sair
-        </Link>     
-      </NavBar>
-      </ContainerDash>
-      <HeaderDash>
-        <div>
-          <p>Olá, {user.user.name}</p>
-          <small>{user.user.course_module}</small>
-        </div>
-      </HeaderDash>
-    <ContainerDash>
+const DasboardPage = () => {
+   const { user, userLoading } = useContext(UserContext)
 
-      <SectionDash>
-        <p>Que pena! Estamos em desenvolvimento :(</p>
-        <small>Nossa aplicação está em desenvolvimento, em breve teremos novidades</small>
-      </SectionDash>
-    </ContainerDash>
-    </DivDahs>
-  )
+   if (userLoading) {
+      return null
+   }
+   return user ? (
+      <DivDahs>
+         <ContainerDash>
+            <NavBar>
+               <img src={Logo} alt='Logo Kenzie Hub' />
+               <Link
+                  to={`/`}
+                  onClick={() => {
+                     user.user = null
+                     localStorage.removeItem('@TOKEN')
+                     localStorage.removeItem('@USERID')
+                  }}
+               >
+                  Sair
+               </Link>
+            </NavBar>
+         </ContainerDash>
+         <HeaderDash>
+            <div>
+               <p>Olá, {user.name}</p>
+               <small>{user.course_module}</small>
+            </div>
+         </HeaderDash>
+         <ContainerDash>
+            <SectionDash/>
+         </ContainerDash>
+      </DivDahs>
+   ) : (
+      <Navigate to={'/'} />
+   )
 }
 
 export default DasboardPage
