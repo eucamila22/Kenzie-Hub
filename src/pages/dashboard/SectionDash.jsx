@@ -1,26 +1,28 @@
 import React, { useContext } from 'react'
+import ModalTechRegistration from '../../components/Modal/CreateTechModal'
+import { TechContext } from '../../contexts/TechContext'
 import CardDash from './CardDash'
 import { DivBtnDash, ListDash, SectionDashStyle } from './style'
-import CreateTechModal from '../../components/Modal/CreateTechModal'
-import { TechContext } from '../../contexts/TechContext'
 
 const SectionDash = () => {
-
-  const { modalIsOpen, openModal, setOpenModal } = useContext(TechContext)
-
-  return (
-    <SectionDashStyle>
-        <DivBtnDash>
+   const { modalIsOpen, openModalRegister, setOpenModalRegister, techs } =
+      useContext(TechContext)
+   return (
+      <SectionDashStyle>
+         <DivBtnDash>
             <h2>Tecnologias</h2>
-            <button onClick={() => setOpenModal(true)}>+</button>
-            {openModal ? <CreateTechModal  modalIsOpen={modalIsOpen}/> : null}
-        </DivBtnDash>
-        <ListDash>
-            <CardDash />
-        </ListDash>
-
-    </SectionDashStyle>
-  )
+            <button onClick={() => setOpenModalRegister(true)}>+</button>
+            {openModalRegister ? (
+               <ModalTechRegistration modalIsOpen={modalIsOpen} />
+            ) : null}
+         </DivBtnDash>
+         <ListDash>
+          {techs.map((e) => (
+            <CardDash key={e.id} e={e}/>
+          ))} 
+         </ListDash>
+      </SectionDashStyle>
+   )
 }
 
 export default SectionDash

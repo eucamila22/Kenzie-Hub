@@ -132,14 +132,13 @@ export const DivBtnDash = styled.div`
 
 export const ListDash = styled.ul`
     width: 95%;
-    max-width: 780px;
     height: 415px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     background: var(--grey-3);
-    border-radius: 4px;      
+    border-radius: 4px;    
+    overflow-y: scroll;  
 `
 export const LiCardDash = styled.li`
     width: 95%;
@@ -158,4 +157,5 @@ export const LiCardDash = styled.li`
     :hover {
         background: var(--grey-2);
     }
+
 `
