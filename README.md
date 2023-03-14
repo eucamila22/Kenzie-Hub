@@ -7,4 +7,6 @@
 
 ##
 
-<p>Além disso, o projeto foi desenvolvido em React, com responsividade seguindo o conceito de Mobile-Firt, adaptando o layout da aplicação em diversos aparelhos.</p>
+<p>Além disso, o projeto foi desenvolvido em React, com responsividade seguindo o conceito de Mobile-First, adaptando o layout da aplicação em diversos aparelhos.</p>
+
+https://react-entrega-kenzie-hub-eucamila22.vercel.app/
